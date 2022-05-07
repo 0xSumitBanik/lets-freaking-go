@@ -25,4 +25,9 @@ func main() {
 	b = 'a' // This will hold the ascii value of 'a'
 	r = 'b' // This will hold the ascii value of 'b'
 	println(flag, i, j, k, s, b, r) // This will print true, -10, 20, 3.14, Hello, 97, 98
+
+	x:= 10 // This is a short hand operator for var x int = 10 (we don't need to specify the data type)
+	y:= "HI" // This is a short hand operator for var y string = "HI"
+
+	println(x,y)
 }

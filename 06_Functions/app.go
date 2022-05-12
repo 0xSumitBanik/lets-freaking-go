@@ -1,5 +1,13 @@
 package main
 
+import "fmt"
+
+// There can be multiple functions named as init declared in a package, even in a source code file.
+// The functions named as init must have not any input parameters and return results.
+func init() {
+	fmt.Println("This will be printed first")
+}
+
 func add(x int, y int) int {
 	return x + y
 }
@@ -47,4 +55,9 @@ func main() {
 		println("x*x + y*y =", x*x+y*y)
 	}() // no arguments are needed.
 
+}
+
+// An init function in an importing package will be invoked after all the init functions declared in the dependency packages of the importing package for sure. 
+func init() {
+	fmt.Println("This will be printed second")
 }

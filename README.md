@@ -4,5 +4,9 @@ This repo contains the code snippets covering concepts of the Go Programming Lan
 
 ---
 #### Table of Content
-- [Introductory Program](./01_introduction/)
-- [Import And Packages](./02_importPackages/)
+- [Introductory Program](./Overview/01_introduction/)
+- [Import And Packages](./Overview/02_importPackages/)
+- [Variables](./Overview/03_Variables/)
+- [Constants](./Overview/04_Constants/)
+- [Operators](./Overview/05_Operators/)
+- [Functions](./Overview/06_Functions/)

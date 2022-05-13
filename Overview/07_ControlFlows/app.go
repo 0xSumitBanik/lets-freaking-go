@@ -33,9 +33,37 @@ func main() {
 	}
 
 	// Using for loop as a while loop
-	j:=1
-	for j<=10{
+	j := 1
+	for j <= 10 {
 		fmt.Printf("%v, ", j)
 		j++
 	}
+	// The rand.Intn function returns a non-negative int random value which is smaller than the specified argument.
+	rand.Seed(time.Now().UnixNano())
+	switch n := rand.Intn(100); n%9 {
+	case 0:
+		fmt.Println(n, "is a multiple of 9.")
+
+		// Different from many other languages,
+		// in Go, the execution will automatically
+		// jumps out of the switch-case block at
+		// the end of each branch block.
+		// No "break" statement is needed here.
+	case 1, 2, 3:
+		fmt.Println(n, "mod 9 is 1, 2 or 3.")
+		// here, this "break" statement is redundant.
+		break
+	case 4, 5, 6:
+		fmt.Println(n, "mod 9 is 4, 5 or 6.")
+	// case 6, 7, 8:
+		// The above case line might fail to compile,
+		// for 6 is duplicate with the 6 in the last
+		// case. The behavior is compiler dependent.
+	default:
+		fmt.Println(n, "mod 9 is 7 or 8.")
+	}
+
+	// To allow the code execution to move into next case without breaking we can use fallthrough keyword
+	// fallthrough has to be the final statement for any case branch
+	
 }

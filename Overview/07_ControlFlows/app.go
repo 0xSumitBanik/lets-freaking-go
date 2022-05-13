@@ -40,7 +40,7 @@ func main() {
 	}
 	// The rand.Intn function returns a non-negative int random value which is smaller than the specified argument.
 	rand.Seed(time.Now().UnixNano())
-	switch n := rand.Intn(100); n%9 {
+	switch n := rand.Intn(100); n % 9 {
 	case 0:
 		fmt.Println(n, "is a multiple of 9.")
 
@@ -56,14 +56,46 @@ func main() {
 	case 4, 5, 6:
 		fmt.Println(n, "mod 9 is 4, 5 or 6.")
 	// case 6, 7, 8:
-		// The above case line might fail to compile,
-		// for 6 is duplicate with the 6 in the last
-		// case. The behavior is compiler dependent.
+	// The above case line might fail to compile,
+	// for 6 is duplicate with the 6 in the last
+	// case. The behavior is compiler dependent.
 	default:
 		fmt.Println(n, "mod 9 is 7 or 8.")
 	}
 
 	// To allow the code execution to move into next case without breaking we can use fallthrough keyword
 	// fallthrough has to be the final statement for any case branch
-	
+
+	// goto statement Example
+	ik := 0
+next: // here, a label is declared.
+	fmt.Println(ik)
+	ik++
+	if ik < 5 {
+		goto next // execution jumps
+	}
+
+	for i := 90; i < 100; i++ {
+		n := FindSmallestPrimeLargerThan(i)
+		fmt.Print("\nThe smallest prime number larger than ")
+		fmt.Println(i, "is", n)
+	}
+}
+
+// Using go-to with break/continue
+// If a break/continue statement contains a label, the label must be declared just before a breakable control flow block which contains the break/continue statement.
+
+func FindSmallestPrimeLargerThan(n int) int {
+Outer:
+	for n++; ; n++ {
+		for i := 2; ; i++ {
+			switch {
+			case i*i > n:
+				break Outer
+			case n%i == 0:
+				continue Outer
+			}
+		}
+	}
+	return n
 }

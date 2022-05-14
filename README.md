@@ -12,3 +12,4 @@ This repo contains the code snippets covering concepts of the Go Programming Lan
 - [Functions](./Overview/06_Functions/)
 - [Control Flows](./Overview/07_ControlFlows/)
 - [Goroutines](./Overview/08_Goroutines/)
+- [Panic And Recover](./Overview/09_PanicRecover/)

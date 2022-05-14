@@ -29,6 +29,11 @@ func main() {
 	addn, sub := addAndSub(1, 26)
 	println(res)
 	println(addn, sub)
+	// When a defer statement is executed, the deferred function call is not executed immediately. 
+	// Instead, it is pushed into a deferred call queue maintained by its caller goroutine.
+	defer println("\n Last line")
+	defer println("\n Second Last line")
+
 
 	// This anonymous function has no parameters
 	// but has two results.

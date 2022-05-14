@@ -16,6 +16,7 @@ func main() {
 	defer func() {
 		// The value returned by a recover function call is the value a panic function call consumed.
 		v := recover()
+		// If recover is called outside the deferred function it will not stop a panicking sequence
 		fmt.Println("recovered:", v)
 	}()
 	panic("bye!")

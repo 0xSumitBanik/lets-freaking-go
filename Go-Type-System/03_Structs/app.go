@@ -35,4 +35,10 @@ func main(){
 	// Initialize a struct value using selectors
 	be.Title="Demo"
 	fmt.Println(be) // {Demo  0} (Demo, empty string and 0)
+
+	bea:= &BookExport{} // bea is the pointer to the struct
+	bea.author="Author-1" // (or) (*bea).author="Author-1" [both are the same]
+	bea2:= new(BookExport) //another way of initializing the pointer to the struct
+	fmt.Printf("%T",bea2) 
+
 }

@@ -72,4 +72,6 @@ func main() {
 
 	ps0 := &[]string{"Go", "C"} // Pointer to the string slice
 	fmt.Printf("\n Pointer to a string %v", *ps0)
+
+	// Ref: https://go101.org/article/container.html
 }

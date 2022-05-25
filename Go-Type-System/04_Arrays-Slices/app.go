@@ -42,33 +42,34 @@ func main() {
 	newSlice := make([]int, 3) // newSlice = [0,0,0]
 
 	for i := 0; i < 5; i++ {
-	  
+
 		// It will double the capacity for the next 3 elements and will create the array with the new capacity and memory address.
-		newSlice = append(newSlice, i) 
-		fmt.Printf("\n Capacity %v, Length %v, Slice Address: %p, %v", cap(newSlice), 
-		               len(newSlice), 
-		               newSlice, 
-									 newSlice)
+		newSlice = append(newSlice, i)
+		fmt.Printf("\n Capacity %v, Length %v, Slice Address: %p, %v", cap(newSlice),
+			len(newSlice),
+			newSlice,
+			newSlice)
 		/* Output:
-				Capacity 6, Length 4, Slice Address: 0xc00000c690, [0 0 0 0]
-				Capacity 6, Length 5, Slice Address: 0xc00000c690, [0 0 0 0 1]
-				Capacity 6, Length 6, Slice Address: 0xc00000c690, [0 0 0 0 1 2]
-				Capacity 12, Length 7, Slice Address: 0xc00001c240, [0 0 0 0 1 2 3]
-				Capacity 12, len 8, Slice Address: 0xc00001c240, [0 0 0 0 1 2 3 4]
+		Capacity 6, Length 4, Slice Address: 0xc00000c690, [0 0 0 0]
+		Capacity 6, Length 5, Slice Address: 0xc00000c690, [0 0 0 0 1]
+		Capacity 6, Length 6, Slice Address: 0xc00000c690, [0 0 0 0 1 2]
+		Capacity 12, Length 7, Slice Address: 0xc00001c240, [0 0 0 0 1 2 3]
+		Capacity 12, len 8, Slice Address: 0xc00001c240, [0 0 0 0 1 2 3 4]
 		*/
 	}
 
 	copiedSlice := make([]int, len(newSlice))
-	copy(copiedSlice,newSlice) // copy(destination,source)
-	fmt.Printf("\n Copied Slice %v , Address %p -> ",copiedSlice,copiedSlice)
-	
-	rangeSlice:=copiedSlice
-	fmt.Printf("\n Range Slice %v , Address %p -> ",rangeSlice,rangeSlice)
-	
+	copy(copiedSlice, newSlice) // copy(destination,source)
+	fmt.Printf("\n Copied Slice %v , Address %p -> ", copiedSlice, copiedSlice)
+
+	rangeSlice := copiedSlice[4:7] // rangeSlice = [4,5,6]
+	rangeSlice[0] = 100
+	fmt.Printf("\n Range Slice %v , Address %p -> ", rangeSlice, rangeSlice)
+
 	// the ...s mean we want to let compilers deduce the lengths for the corresponding array values.
 	variableArray := [...]int{}
-	fmt.Printf("\n Variable Array %T",variableArray) // [0]int
+	fmt.Printf("\n Variable Array %T \n", variableArray) // [0]int
 
-	
-
+	ps0 := &[]string{"Go", "C"} // Pointer to the string slice
+	fmt.Printf("\n Pointer to a string %v", *ps0)
 }

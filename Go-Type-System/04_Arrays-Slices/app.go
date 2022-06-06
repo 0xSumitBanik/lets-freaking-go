@@ -74,4 +74,10 @@ func main() {
 	fmt.Printf("\n Pointer to a string %v", *ps0)
 
 	// Ref: https://go101.org/article/container.html
+
+	fmt.Println("\n Looping through Array/slice using range function")
+	// Looping through Array/slice using range function
+	for j := range(newSlice){
+		fmt.Println(newSlice[j])
+	}
 }
